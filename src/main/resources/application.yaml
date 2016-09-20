@@ -1,0 +1,9 @@
+# Server
+server:
+  port: 8080
+
+# Logging
+logging:
+  level:
+    com.iservport.basic: DEBUG
+    org.springframework.security: INFO
