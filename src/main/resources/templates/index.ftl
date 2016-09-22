@@ -13,12 +13,23 @@
 <body id="ng-app" xmlns:ng="http://angularjs.org" data-ng-app="app" data-ng-controller="HomeController as home">
 
     <div class="container">
+        <h1>Projetos</h1>
         <div class="row">
             <div class="col-md-4">
-                <h1>{{home.report.projectName}}</h1>
+                <div class="well" data-ng-repeat="project in home.projects">
+                    <h4>Projeto {{project.projectName}}</h4>
+                </div>
             </div>
             <div class="col-md-8">
-                <div id="donutchart" class="640x320px"></div>
+                <div class="row">
+                    <div class="col-md-6" data-ng-repeat="pacakge in [1,2]">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div id="donutchart" class="640x320px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -41,14 +52,15 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Count'],
-          ['Passed',     11],
-          ['Failed',      2],
-          ['Pending',  2],
-          ['Customer', 2]
+          ['No run',     11],
+          ['Passed',      2],
+          ['Failed',  2],
+          ['Blocked', 2],
+          ['Not completed', 2]
         ]);
 
         var options = {
-          title: 'Projeto NewApp',
+          title: '{{}}',
           pieHole: 0.3,
         };
 

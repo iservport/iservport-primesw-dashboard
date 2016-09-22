@@ -2,8 +2,8 @@ package com.iservport.dashboard.domain
 
 import scala.beans.BeanProperty
 
-case class TestPackage
+case class ProjectPackage
 (
   @BeanProperty packageName: String,
-  @BeanProperty results: Array[ResultData]
+  @BeanProperty reports: Array[Report]
 )

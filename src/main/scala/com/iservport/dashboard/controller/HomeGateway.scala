@@ -1,17 +1,17 @@
 package com.iservport.dashboard.controller
 
-import com.iservport.dashboard.domain.{ResultData, TestPackage, TestReport}
+import com.iservport.dashboard.domain.{Entity, Project, ProjectPackage, Report}
+import com.iservport.dashboard.service.ProjectQueryService
 import org.springframework.web.bind.annotation.{GetMapping, RequestMapping, RequestParam, RestController}
 
 @RestController
 @RequestMapping(Array("/api/home"))
-class HomeGateway {
+class HomeGateway(projectQueryService: ProjectQueryService) {
 
-  @GetMapping
-  def show(@RequestParam reportId: String): TestReport = {
-    TestReport("ID1", "VOLVO", "Projeto X",
-      Array(TestPackage("Demanda A",
-        Array(ResultData("Caso #1", 10, 5, 3), ResultData("Caso #2", 20, 5, 7)))))
-  }
+  @GetMapping(params = Array("entityId"))
+  def getProjectList(@RequestParam entityId: String) = projectQueryService.several(entityId)
+
+  @GetMapping(params = Array("projectId"))
+  def getProject(@RequestParam projectId: String) = projectQueryService.one(projectId)
 
 }
