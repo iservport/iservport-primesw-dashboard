@@ -45,5 +45,6 @@ libraryDependencies ++= Seq(
   "org.webjars.bower" % "bootstrap"            % "3.3.7"  exclude("org.webjars.bower", "jquery"),
   "org.webjars.bower" % "jquery"               % "2.2.4",
   "org.webjars.bower" % "fontawesome"          % "4.6.3",
+  "org.webjars.bower" % "angular-google-chart" % "0.1.0",
   "org.webjars.bower" % "angularpoller"        % "0.3.2"
 )

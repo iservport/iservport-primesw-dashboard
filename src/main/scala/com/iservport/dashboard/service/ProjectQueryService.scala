@@ -8,25 +8,17 @@ import scala.collection.JavaConverters._
 @Service
 class ProjectQueryService {
 
-  // TODO implementar chamada ao ws de projeto
-  def one(projectId: String): Project =
+  // TODO ler a partir de arquivo
+  def one(projectId: String): PieChartAdapter =
     projectId match {
       case "1" =>
-        Project(
-          Entity(s"$projectId", "VIVO 1"),
-          "Teste VIVO 1",
-          Array(ProjectPackage("Criar ordem de compra em dinheiro",
-            Array(Report("Caso #1", 6, 22, 3, 1, 1), Report("Caso #2", 20, 5, 7)))
-          )
-        )
+        PieChartAdapter(Report("Caso #1", 16, 22, 3, 1, 1))
       case "2" =>
-        Project(
-          Entity(s"$projectId", "VIVO 2"),
-          "Teste VIVO 2",
-          Array(ProjectPackage("Criar ordem de compra com cartão visa",
-            Array(Report("Caso #1", 6, 22, 3, 1, 1), Report("Caso #2", 20, 5, 7)))
-          )
-        )
+        PieChartAdapter(Report("Caso #2", 20, 20, 20, 20, 20))
+      case "3" =>
+        PieChartAdapter(Report("Caso #3", 100, 800, 50, 10, 0))
+      case "4" =>
+        PieChartAdapter(Report("Caso #4", 1, 20, 1, 0, 0))
     }
 
   // TODO implementar chamada ao ws de lista de projetos

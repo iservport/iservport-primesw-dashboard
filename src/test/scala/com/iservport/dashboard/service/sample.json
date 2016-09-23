@@ -1,0 +1,69 @@
+{
+  "type": "PieChart",
+  "data": {
+    "cols": [
+      {
+        "id": "t",
+        "label": "Resultado",
+        "type": "string"
+      },
+      {
+        "id": "q",
+        "label": "Qtde",
+        "type": "number"
+      }
+    ],
+    "rows": [
+      {
+        "c": [
+          {
+            "v": "No run"
+          },
+          {
+            "v": 6
+          }
+        ]
+      },
+      {
+        "c": [
+          {
+            "v": "Passed"
+          },
+          {
+            "v": 22
+          }
+        ]
+      },
+      {
+        "c": [
+          {
+            "v": "Failed"
+          },
+          {
+            "v": 3
+          }
+        ]
+      },
+      {
+        "c": [
+          {
+            "v": "Blocked"
+          },
+          {
+            "v": 1
+          }
+        ]
+      },
+      {
+        "c": [
+          {
+            "v": "Not completed"
+          },
+          {
+            "v": 1
+          }
+        ]
+      }
+    ]
+  }
+}

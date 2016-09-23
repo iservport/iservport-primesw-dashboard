@@ -22,18 +22,12 @@
             </div>
             <div class="col-md-8">
                 <div class="row">
-                    <div class="col-md-6" data-ng-repeat="pacakge in [1,2]">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <div id="donutchart" class="640x320px"></div>
-                            </div>
-                        </div>
+                    <div class="col-md-6" data-ng-repeat="id in [1,2,3,4]" data-project-chart="id">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
     <script type="text/javascript" src="/webjars/angular/1.5.8/angular.min.js"></script>
     <script type="text/javascript" src="/webjars/angular-sanitize/1.5.8/angular-sanitize.min.js"></script>
@@ -41,33 +35,9 @@
     <script type="text/javascript" src="/webjars/angular-animate/1.5.8/angular-animate.min.js"></script>
     <script type="text/javascript" src="/webjars/angular-i18n/1.5.8/angular-locale_${locale_!'pt-br'}.js"></script>
     <script type="text/javascript" src="/webjars/angularpoller/0.3.2/angular-poller.min.js"></script>
-    <!--<script type="text/javascript" src="/lib/ui-bootstrap-tpls-2.1.3.min.js"></script>-->
     <script type="text/javascript" src="./target/scala-2.11/helianto-spring-fastopt.js"></script>
     <script type="text/javascript" src="/js/controllers.js"></script>
-    <script type="text/javascript" src="/js/raphael-2.1.4.min.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Count'],
-          ['No run',     11],
-          ['Passed',      2],
-          ['Failed',  2],
-          ['Blocked', 2],
-          ['Not completed', 2]
-        ]);
-
-        var options = {
-          title: '{{}}',
-          pieHole: 0.3,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-        chart.draw(data, options);
-      }
-    </script>
+    <script type="text/javascript" src="/webjars/angular-google-chart/0.1.0/ng-google-chart.min.js"></script>
 
 </body>
 </html>
