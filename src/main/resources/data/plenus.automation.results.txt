@@ -1,0 +1,10 @@
+nome e data e total de casos de teste;No Run;Passed;Failed;Blocked
+Meu Vivo Pré - App Andoird Toltal 200 - 20/10/2016;100;50;20;30
+Meu Vivo Pós - App Android Toltal 210 - 20/10/2016;90;60;30;30
+Meu Vivo Conrole - App Android Toltal 220 - 20/10/2016;100;60;20;40
+Meu Vivo Pré - Web Toltal 200 - 20/10/2016;100;50;20;30
+Meu Vivo Pós - Web Toltal 210 - 20/10/2016;90;60;30;30
+Meu Vivo Conrole - Web Toltal 220 - 20/10/2016;100;60;20;40
+Meu Vivo Pré - App IOS Toltal 200 - 20/10/2016;100;50;20;30
+Meu Vivo Pós - App IOS Toltal 210 - 20/10/2016;90;60;30;30
+Meu Vivo Conrole - App IOS Toltal 220 - 20/10/2016;100;60;20;40

@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.{GetMapping, RequestMapping, Requ
 @RequestMapping(Array("/api/home"))
 class HomeGateway(projectQueryService: ProjectQueryService) {
 
-  @GetMapping(params = Array("entityId"))
-  def getProjectList(@RequestParam entityId: String) = projectQueryService.several(entityId)
+  import collection.JavaConverters._
 
-  @GetMapping(params = Array("projectId"))
-  def getProject(@RequestParam projectId: String) = projectQueryService.one(projectId)
+  @GetMapping
+  def getReports = projectQueryService.all.asJava
 
 }

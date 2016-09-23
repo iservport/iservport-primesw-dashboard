@@ -1,12 +1,12 @@
 package com.iservport.dashboard.service
 
-import com.iservport.dashboard.chart.{Animation, ChartColumn, ChartOptions, GoogleChartWrapper}
+import com.iservport.dashboard.chart.{ChartColumn, ChartOptions, GoogleChartWrapper}
 import com.iservport.dashboard.domain.Report
 
 
 case class PieChartAdapter(report: Report) extends GoogleChartWrapper {
 
-  val names = Array("No run", "Passed", "Failed", "Blocked", "Not completed")
+  val names = Array("No run", "Passed", "Failed", "Blocked")
 
   val colors = Array("#FF9900", "#109618", "#DC3912", "#990099", "#AAAA11")
 
