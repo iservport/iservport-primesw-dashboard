@@ -10,7 +10,7 @@ import scala.util.{Failure, Success, Try}
 @Service
 class ProjectQueryService(resourceLoader: ResourceLoader) {
 
-  val resourceLocation = "classpath:data/plenus.automation.results.txt"
+  val resourceLocation = "file:///opt/data/plenus.automation.results.txt"
 
   def all: List[PieChartAdapter] = Option(readFile) match {
     case Some(lines) =>
