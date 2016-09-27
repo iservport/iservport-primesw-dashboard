@@ -1,6 +1,7 @@
 package com.iservport.dashboard.service
 
 import com.iservport.dashboard.domain._
+import org.slf4j.{Logger, LoggerFactory}
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.io.ResourceLoader
 import org.springframework.stereotype.Service
@@ -10,6 +11,8 @@ import scala.util.{Failure, Success, Try}
 
 @Service
 class ProjectQueryService(resourceLoader: ResourceLoader) {
+
+  val logger = LoggerFactory.getLogger(classOf[ProjectQueryService])
 
   @Value("${resourceLocation}")
   val resourceLocation: String = null
@@ -38,12 +41,18 @@ class ProjectQueryService(resourceLoader: ResourceLoader) {
 
   def readFile: List[String] = {
     val resource = resourceLoader.getResource(resourceLocation)
-    Try(Source.fromFile(resource.getURI).getLines()) match {
-      case Success(lines) => lines
-        .withFilter(h => !h.startsWith("nome e data e total de casos de teste"))
-        .withFilter(h => h.replaceAll(" ","").nonEmpty)
-        .toList
-      case Failure(e) => throw new IllegalArgumentException("Unable to read file")
+    logger.info(s"Reading file $resourceLocation ...")
+    Try(Source.fromFile(resource.getURI)) match {
+      case Success(file) =>
+        logger.info(s"Reading lines $file ...")
+        Try(file.getLines()) match {
+          case Success(lines) => lines
+            .withFilter(h => !h.startsWith("nome e data e total de casos de teste"))
+            .withFilter(h => h.replaceAll(" ","").nonEmpty)
+            .toList
+          case Failure(e) => throw new IllegalArgumentException("Unable to read file")
+        }
+      case Failure(e) => throw new IllegalArgumentException("Unable to open file")
     }
   }
 
