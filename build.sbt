@@ -6,7 +6,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "iservport-primesw-dashboard",
     mainClass in (Compile) := Some("com.iservport.dashboard.Application"),
-    version := "1.2.1.RELEASE",
+    version := "1.2.2.RELEASE",
     dockerBaseImage := "azul/zulu-openjdk:8",
     dockerUpdateLatest := true,
     dockerExposedPorts := Seq(8080),

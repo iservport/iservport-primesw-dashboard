@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='/webjars/bootstrap/3.3.7/dist/css/bootstrap.min.css'>
+    <link rel='stylesheet' href="/webjars/fontawesome/4.6.3/css/font-awesome.css">
     <link rel='stylesheet' href='/css/iservport.css'>
     <script type="text/javascript" src="/webjars/jquery/2.2.4/dist/jquery.min.js"></script>
     <title>Dashboard</title>
