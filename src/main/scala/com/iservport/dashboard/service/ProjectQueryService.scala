@@ -1,6 +1,7 @@
 package com.iservport.dashboard.service
 
 import com.iservport.dashboard.domain._
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.io.ResourceLoader
 import org.springframework.stereotype.Service
 
@@ -10,7 +11,8 @@ import scala.util.{Failure, Success, Try}
 @Service
 class ProjectQueryService(resourceLoader: ResourceLoader) {
 
-  val resourceLocation = "c:\\opt\\data\\plenus.automation.results.txt"
+  @Value("${resourceLocation}")
+  val resourceLocation: String = null
 
   def all: List[PieChartAdapter] = Option(readFile) match {
     case Some(lines) =>

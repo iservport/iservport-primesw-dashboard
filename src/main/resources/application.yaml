@@ -7,3 +7,5 @@ logging:
   level:
     com.iservport.basic: DEBUG
     org.springframework.security: INFO
+
+resourceLocation: file:C:\\opt\\data\\plenus.automation.results.txt
