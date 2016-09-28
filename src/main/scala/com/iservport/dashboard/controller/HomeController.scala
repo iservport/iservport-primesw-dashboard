@@ -9,4 +9,6 @@ class HomeController {
 
   @GetMapping def index = "index"
 
+  @GetMapping(Array("/config")) def config = "config"
+
 }

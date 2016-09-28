@@ -1,5 +1,5 @@
 angular.module('app', ['emguo.poller', 'googlechart',])
-.controller('HomeController', ['poller', function(poller) {
+.controller('HomeController', ['$http', 'poller', function($http, poller) {
 
     var self = this;
 

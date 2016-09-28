@@ -1,7 +1,8 @@
 package com.iservport.dashboard.service
 
 import com.iservport.dashboard.domain._
-import org.slf4j.{Logger, LoggerFactory}
+import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.InitializingBean
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.io.ResourceLoader
 import org.springframework.stereotype.Service
@@ -10,12 +11,24 @@ import scala.io.Source
 import scala.util.{Failure, Success, Try}
 
 @Service
-class ProjectQueryService(resourceLoader: ResourceLoader) {
+class ProjectQueryService(resourceLoader: ResourceLoader) extends InitializingBean {
 
   val logger = LoggerFactory.getLogger(classOf[ProjectQueryService])
 
   @Value("${resourceLocation}")
-  val resourceLocation: String = null
+  val resourceLocation: String = ""
+
+  var resourceCache = ResourceLocationCache()
+
+  override def afterPropertiesSet(): Unit =
+    resourceCache match {
+      case ResourceLocationCache(r) if r.nonEmpty => logger.info(s"Cached location is $r")
+      case _ =>
+        logger.info(s"Initial location is $resourceLocation")
+        resourceCache = ResourceLocationCache(resourceLocation)
+    }
+
+  def location = resourceCache.location
 
   def all: List[PieChartAdapter] = Option(readFile) match {
     case Some(lines) =>
@@ -40,8 +53,8 @@ class ProjectQueryService(resourceLoader: ResourceLoader) {
   }
 
   def readFile: List[String] = {
-    val resource = resourceLoader.getResource(resourceLocation)
-    logger.info(s"Reading file $resourceLocation ...")
+    logger.info(s"Reading from  ${resourceCache.location}")
+    val resource = resourceLoader.getResource(resourceCache.location)
     Try(Source.fromFile(resource.getURI)) match {
       case Success(file) =>
         logger.info(s"Reading lines $file ...")
@@ -52,12 +65,12 @@ class ProjectQueryService(resourceLoader: ResourceLoader) {
             .toList
           case Failure(e) => throw new IllegalArgumentException("Unable to read file")
         }
-      case Failure(e) => throw new IllegalArgumentException("Unable to open file")
+      case Failure(e) => throw new IllegalArgumentException("Unable to open file", e)
     }
   }
 
   def save(data: String): List[PieChartAdapter] =
-    Try(resourceLoader.getResource(resourceLocation)) match {
+    Try(resourceLoader.getResource(resourceCache.location)) match {
       case Success(resource) if resource.exists() =>
         writeFile(resource.getFile, data)
         all

@@ -22,4 +22,7 @@ class HomeGateway(projectQueryService: ProjectQueryService) {
     projectQueryService.save(data).asJava
   }
 
+  @GetMapping(value = Array("/location"))
+  def getConfig = s"{ 'data': '${projectQueryService.location}'}"
+
 }

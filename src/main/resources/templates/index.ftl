@@ -31,12 +31,16 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="modalAlert" data-backdrop="static" tabindex="-1" role="dialog">
+        <div data-home-modal ></div>
+    </div>
 
     <script type="text/javascript" src="/webjars/angular/1.5.8/angular.min.js"></script>
     <script type="text/javascript" src="/webjars/angular-i18n/1.5.8/angular-locale_${locale_!'pt-br'}.js"></script>
     <script type="text/javascript" src="/webjars/angularpoller/0.3.2/angular-poller.min.js"></script>
     <script type="text/javascript" src="./target/scala-2.11/helianto-spring-fastopt.js"></script>
     <script type="text/javascript" src="/js/controllers.js"></script>
+    <script type="text/javascript" src="/js/forms.js"></script>
     <script type="text/javascript" src="/webjars/angular-google-chart/0.1.0/ng-google-chart.min.js"></script>
 
 </body>
